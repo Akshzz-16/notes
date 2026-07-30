@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#c9d1d9;font-family:'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;min-height:100vh}
+.navbar{background:#161b22;border-bottom:1px solid #30363d;padding:0 24px;display:flex;align-items:center;height:56px}
+.navbar .brand{color:#f0f6fc;font-weight:700;font-size:18px;letter-spacing:.3px}
+.navbar .brand span{color:#f85149}
+.main{flex:1;display:flex;justify-content:center;padding:60px 24px}
+.content{max-width:800px;width:100%}
+h1{color:#f0f6fc;font-size:32px;margin-bottom:8px;text-align:center}
+.subtitle{color:#8b949e;font-size:16px;text-align:center;margin-bottom:48px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:32px;text-align:center;text-decoration:none;transition:border .2s,transform .2s;display:flex;flex-direction:column;align-items:center;gap:12px}
+.card:hover{border-color:#f85149;transform:translateY(-4px)}
+.card .icon{font-size:48px;line-height:1}
+.card .title{color:#f0f6fc;font-size:20px;font-weight:600}
+.card .desc{color:#8b949e;font-size:14px;line-height:1.5}
+.card .count{color:#8b949e;font-size:13px;margin-top:4px}
+.footer{text-align:center;padding:24px;color:#8b949e;font-size:13px}
+@media(max-width:600px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="brand">Notes</div>
+</nav>
+<main class="main">
+  <div class="content">
+    <h1>Study Notes</h1>
+    <p class="subtitle">SPPU exam-oriented notes</p>
+    <div class="cards">
+      <a class="card" href="ethicalNotes/">
+        <div class="icon">🛡️</div>
+        <div class="title">Ethical Hacking</div>
+        <div class="desc">5 units covering ethical hacking concepts, exploits, and trends</div>
+        <div class="count">5 notes</div>
+      </a>
+      <a class="card" href="OB/">
+        <div class="icon">👥</div>
+        <div class="title">Organisational Behaviour</div>
+        <div class="desc">5 units covering OB, motivation, group dynamics, and culture</div>
+        <div class="count">5 notes</div>
+      </a>
+    </div>
+  </div>
+</main>
+<div class="footer">Study Notes &mdash; GitHub Pages</div>
+</body>
+</html>
