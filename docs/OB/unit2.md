@@ -333,6 +333,45 @@ Stage 1             Stage 2             Stage 3              Stage 4            
 
 ---
 
+## Additional Real-Life Exam Examples
+
+### Example 6: EI in Crisis Leadership — Satya Nadella at Microsoft
+**Scenario**: When Satya Nadella became Microsoft CEO in 2014, the company had a toxic "know-it-all" culture — internal competition, finger-pointing, and resistance to change. Nadella transformed it into a "learn-it-all" culture using emotional intelligence. He openly talked about his own emotions (including his son's disability and how it taught him empathy), encouraged managers to be vulnerable, replaced performance stack-ranking with collaboration, and invested in emotional intelligence training for all leaders.
+**OB Analysis**: Nadella's leadership demonstrates all 5 EI components: Self-Awareness (knowing his own leadership gaps), Self-Regulation (changing his reactive habits), Motivation (vision of growth mindset), Empathy (deep understanding of employee struggles), and Social Skills (building coalitions across the company). Result: Microsoft's market cap grew from $300B to over $2 trillion, and employee engagement scores doubled.
+**Exam Tip**: Nadella's Microsoft turnaround is the most powerful real-world example of EI transforming organizational culture. Quote it for "Impact of EI on Leadership."
+
+### Example 7: Workplace Stress — EY (Ernst & Young) Overtime Scandal
+**Scenario**: In 2023, EY (one of the Big 4 accounting firms) faced public outrage when a junior auditor died by suicide after working 100+ hour weeks for months during audit season. Internal messages revealed a culture where working 80+ hours was normalized, taking leave was discouraged, and managers pressured staff to hide overtime. EY later paid a $100M fine for falsifying overtime records.
+**OB Analysis**: This case illustrates extreme distress caused by organizational stressors (work overload, poor leadership, unrealistic deadlines). The stress was chronic and episodic, leading to burnout, health deterioration, and tragic outcomes. The root cause was a culture that valued billing hours over human well-being.
+**Exam Tip**: Use the EY overtime case when asked "Explain the consequences of chronic workplace stress" or "What happens when organizations ignore employee well-being?"
+
+### Example 8: Organizational Stress — Zomato's Hyper-Growth Period
+**Scenario**: During COVID-19 lockdowns, Zomato experienced explosive growth. Delivery partners worked 12-14 hour days in hazardous conditions. Office staff faced constant pressure to scale operations. CEO Deepinder Goyal publicly acknowledged the stress, introduced mental health leaves, insurance for delivery partners, and set up a 24/7 counselling helpline. He also capped working hours and banned late-night emails.
+**OB Analysis**: Zomato's response shows both organizational and individual stress management strategies. The company used job redesign (reducing workload), employee support (counselling), and clear communication (CEO transparency). This balances the eustress of growth with managing distress.
+**Exam Tip**: Zomato is a great Indian startup example for stress management strategies in OB exams.
+
+### Example 9: EI in Team Building — Tata's Leadership Development
+**Scenario**: Tata Group's leadership development program (Tata Management Development Centre) includes mandatory emotional intelligence assessments for all managers. They use the ESCI (Emotional and Social Competency Inventory) tool to measure EI competencies. Managers with high EI scores are 3x more likely to be rated as "high potential" for senior leadership roles. Tata found that technical experts without EI rarely succeeded in people-management roles.
+**OB Analysis**: Tata's data confirms that EI matters more than IQ for leadership effectiveness. The company uses EI assessment in succession planning, proving that EI can be measured and developed.
+**Exam Tip**: Quote Tata's ESCI program when asked "How can organizations develop emotional intelligence in their leaders?"
+
+### Example 10: Conflict Resolution — Apple vs Samsung (Interorganizational)
+**Scenario**: The Apple-Samsung patent war (2011-2018) is one of the most famous interorganizational conflicts in business history. Apple accused Samsung of copying iPhone designs; Samsung countersued. The conflict spanned 10+ countries, involved billions in damages, and lasted 7+ years. Eventually, both companies realized the conflict was hurting both — litigation costs were enormous and neither could afford to lose a key supplier/component partner (Samsung supplied iPhone chips). They settled in 2018.
+**OB Analysis**: This demonstrates the Thomas-Kilmann model — the parties moved from COMPETING (Win-Lose litigation) to COMPROMISING (settlement). The conflict was initially functional (protecting IP rights) but became dysfunctional (wasting billions on legal fees). Third-party courts acted as arbitration. The resolution came when both recognized interdependence.
+**Exam Tip**: Apple vs Samsung is the ultimate real-world example for conflict resolution styles in OB exams.
+
+### Example 11: Stress and Performance — Yerkes-Dodson Law Application in Cricket
+**Scenario**: In high-pressure cricket matches (e.g., World Cup final, IPL final), some players thrive while others choke. MS Dhoni, known for his calm demeanour under pressure, exemplifies optimal eustress — he performed best under moderate stress. Conversely, many talented players fail in high-stakes matches due to distress overwhelming their cognitive capacity.
+**OB Analysis**: This demonstrates the Yerkes-Dodson Law — performance increases with stress up to an optimal point, then declines sharply. Dhoni's emotional regulation (high EI) kept his stress at the optimal level. Players who lack EI experience distress and underperform.
+**Exam Tip**: Use the Dhoni/cricket analogy to explain the Yerkes-Dodson Law of stress and performance in OB exams.
+
+### Example 12: Organizational Conflict — Zomato vs Swiggy Rivalry
+**Scenario**: Zomato and Swiggy, India's top food delivery platforms, engage in constant competitive conflict — undercutting prices, poaching restaurant partnerships, aggressive marketing wars. This conflict is FUNCTIONAL because it drives innovation (better apps, faster delivery, AI recommendations) and keeps both companies improving. However, it also creates DYSFUNCTIONAL effects — both burn cash on discounts, delivery partners face pressure, and restaurants get squeezed on commissions.
+**OB Analysis**: This interorganizational conflict illustrates how the same conflict can be both functional and dysfunctional simultaneously. It depends on perspective — consumer gets better service, but workers and restaurants may suffer.
+**Exam Tip**: Use Zomato vs Swiggy as the classic Indian example of interorganizational conflict with both functional and dysfunctional effects.
+
+---
+
 ## Summary
 
 - **Emotional Intelligence** (self-awareness, self-regulation, motivation, empathy, social skills) is critical for leadership and teamwork

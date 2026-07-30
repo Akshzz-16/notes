@@ -453,6 +453,56 @@ The company invested in hygiene but ignored motivators.
 
 ---
 
+## Additional Real-Life Exam Examples
+
+### Example 8: Maslow in Practice — Zappos' Culture of Self-Actualization
+**Scenario**: Zappos (online shoe retailer) famously built its culture around employee happiness and self-actualization. It offered: Adequate salary + free healthcare (Physiological), Job security (Safety), Team outings and open office (Social), Peer recognition programs + "Zappos Insights" tours (Esteem), and a $2,000 "offer to quit" after training (weeds out those not committed to culture — leaving only those seeking purpose). New hires spend 4 weeks in customer service regardless of role, to understand the mission.
+**OB Analysis**: Zappos deliberately addresses all levels of Maslow's hierarchy, with particular emphasis on self-actualization. The $2,000 offer to quit is brilliant — it ensures only people motivated by purpose (not just salary) remain. This created legendary customer service and low turnover.
+**Exam Tip**: Zappos is the most cited company for Self-Actualization in Maslow's hierarchy. The "$2,000 quit bonus" is a memorable detail for exams.
+
+### Example 9: Herzberg in Practice — HCL Technologies' Employee First
+**Scenario**: In the 2000s, HCL Technologies under CEO Vineet Nayar implemented "Employee First, Customer Second" (EFCS). He argued that if employees are motivated (Motivators: responsibility, recognition, growth), they will naturally serve customers well. HCL opened all company data (including CEO's calendar, financials, strategy) to all employees (transparency = trust), reversed the evaluation process (employees rated managers on the "Smart Service Desk"), and invested heavily in training and internal career mobility.
+**OB Analysis**: HCL addressed Herzberg's Motivators: Achievement (employees solved real problems), Recognition (transparent appreciation systems), Responsibility (open data, trust), Growth (heavy training investment). Traditional IT companies focused on Hygiene (salary, bean bags, free snacks) but HCL focused on Motivators — and became one of India's most profitable IT firms.
+**Exam Tip**: HCL's "Employee First" is the best Indian example of Herzberg's Motivator factors in action. Must-quote for SPPU exams.
+
+### Example 10: Theory X vs Theory Y — Marriott vs Uber
+**Scenario**: Marriott Hotels (Theory Y): Employees are empowered to resolve guest problems without manager approval. A front desk clerk can comp a room, send a fruit basket, or upgrade a guest. Marriott trains employees extensively, trusts their judgment, and measures success by customer satisfaction. Result: High engagement, low turnover in hospitality.
+**Scenario**: Uber under Travis Kalanick (Theory X): Drivers were treated as replaceable cogs. The app algorithm controlled every aspect — route, pricing, acceptance rate. Drivers who declined trips were penalized. No human manager relationship. Trust was minimal; control was algorithmic. Kalanick famously rejected employee input and drove a "win at all costs" culture.
+**OB Analysis**: Marriott's Theory Y approach created brand loyalty (both employees and customers). Uber's Theory X approach led to driver protests, lawsuits, regulatory battles, and eventually Kalanick's ouster. Both were profitable, but Marriott sustained loyalty while Uber faced constant friction.
+**Exam Tip**: Contrast Marriott (Theory Y) vs Uber-Kalanick (Theory X) for a powerful comparison answer in exams.
+
+### Example 11: Theory Z in India — HDFC Bank's Long-Term Culture
+**Scenario**: HDFC Bank, India's most valuable private bank, exemplifies Theory Z principles: Long-term employment (average tenure 8+ years, rare in banking), Collective decision-making (consensus-driven management), Holistic concern (health programs, family events, sabbaticals), Cross-functional career paths (employees move across departments), and Slow promotion (careful, merit-based advancement over decades). This created India's lowest attrition rate in banking (<10% vs industry 25-30%) and consistent profitability.
+**OB Analysis**: Theory Z's long-term orientation creates loyalty and institutional knowledge. HDFC Bank's low turnover means employees deeply understand customers and processes. The slow promotion ensures leaders have comprehensive experience. Downside: decision-making can be slow, and high performers sometimes leave for faster growth elsewhere.
+**Exam Tip**: HDFC Bank is the best Indian example of Theory Z in action. Use it when asked "Explain Theory Z with a real-world example."
+
+### Example 12: Autocratic vs Democratic Leadership — Apple (Steve Jobs) vs Microsoft (Nadella)
+**Scenario**: Steve Jobs (Apple) was famously autocratic — he made all product decisions, vetoed ideas in meetings with "that's s**t," and demanded perfection. His approach created revolutionary products (iPhone, iPad) but also intense stress. His team feared him but respected his vision. Satya Nadella (Microsoft) is democratic/participative — he asks "what would you do?" in meetings, encourages debate, empowers teams, and leads through empathy.
+**OB Analysis**: Both styles succeeded in different contexts. Jobs' autocratic style worked in a crisis-driven startup needing decisive product vision. Nadella's participative style worked in a mature company needing culture transformation. The right style depends on the situation (Contingency Theory of Leadership).
+**Exam Tip**: Contrast Jobs (autocratic) vs Nadella (participative) to answer "Compare autocratic and democratic leadership styles" — show that neither is universally better.
+
+### Example 13: Transformational Leadership — Ratan Tata's Global Vision
+**Scenario**: Ratan Tata transformed Tata Group from a primarily India-focused conglomerate into a global powerhouse. He articulated a bold vision (Tata Motors' Nano, Jaguar Land Rover acquisition, Corus Steel), inspired loyalty across 100+ companies, led by example (personally visited Nano plant workers, stayed in budget hotels), and drove innovation (Tata Indica — first Indian-designed car). Even after retirement, he remains the group's moral compass.
+**OB Analysis**: Ratan Tata demonstrated all 4 components of Transformational Leadership: Idealized Influence (ethical behaviour, humility), Inspirational Motivation (vision of global Tata), Intellectual Stimulation (Nano, JLR acquisition pushed boundaries), Individualized Consideration (personal connection with employees across levels).
+**Exam Tip**: Ratan Tata is India's ultimate transformational leadership example. Memorize the 4 I's applied to his leadership.
+
+### Example 14: Impact of Motivation on Performance — Google's 20% Time
+**Scenario**: Google's "20% time" policy allowed engineers to spend 20% of their work hours on personal projects unrelated to their primary job. This policy produced Gmail, Google News, AdSense, and Google Maps — products that generated billions in revenue. The intrinsic motivation (autonomy, purpose, mastery) drove innovation that no amount of bonus money could have bought.
+**OB Analysis**: This is the most powerful proof that intrinsic motivation (Self-Determination Theory: autonomy + competence + relatedness) outperforms extrinsic rewards for creative work. Google didn't pay extra for these innovations — employees were motivated by ownership and purpose. Google later reduced 20% time (to focus on core products), and innovation declined.
+**Exam Tip**: Google's 20% time producing Gmail and AdSense is a must-cite example for "How motivation drives organizational performance" and "Intrinsic vs Extrinsic motivation."
+
+### Example 15: Motivation Failure — Nokia's Decline (Hygiene vs Motivators)
+**Scenario**: Nokia dominated the mobile phone market (40% global share) but collapsed after the iPhone launched. Standard OB explanation: "They failed to innovate." Deeper OB analysis: Nokia's culture under CEO Stephen Elop was driven by fear — internal memos talked of a "burning platform." Engineers had no autonomy (all decisions from Finland HQ), no recognition (success was expected, failure was punished), and no growth (the company was downsizing). Hygiene factors (salary, benefits) were good, but motivators were absent. Talented engineers left for Google/Apple.
+**OB Analysis**: Nokia's failure is a Herzberg case study: Good hygiene (high salaries, Finnish benefits) cannot compensate for absent motivators (no autonomy, no recognition, no growth). When motivators are missing, even the best-paid employees disengage and leave.
+**Exam Tip**: Contrast Nokia (motivation failure → collapse) with Google 20% time (motivation success → innovation) for a powerful exam answer on "How motivation drives organizational performance."
+
+### Example 16: Participative Leadership — Wipro's Democratization of Ideas
+**Scenario**: Wipro under Rishad Premji runs "Wipro Simulator" — a digital platform where any employee, from any level, can propose ideas, comment on strategies, and vote on initiatives. The best ideas, regardless of who proposed them, are funded and implemented. One such idea from a junior engineer in Chennai saved Wipro $5M annually in cloud costs. Another from a delivery manager created a new AI service line.
+**OB Analysis**: Participative leadership at Wipro unlocks innovation from the front lines. Junior employees closest to problems often have the best solutions but traditional hierarchies silence them. Wipro's platform gives them voice, ownership, and recognition — tapping into Motivation (esteem, self-actualization).
+**Exam Tip**: Wipro Simulator is a great Indian IT sector example of Participative/Democratic Leadership driving innovation.
+
+---
+
 ## Summary
 
 - **Motivation** drives direction, effort, and persistence towards goals

@@ -365,6 +365,55 @@ Simon's model describes three phases of decision making, with a focus on the bou
 
 ---
 
+## Additional Real-Life Exam Examples
+
+### Example 7: Groupthink — NASA Challenger Disaster (1986)
+**Scenario**: In 1986, NASA's Space Shuttle Challenger exploded 73 seconds after launch, killing all 7 crew members. The disaster was caused by O-ring failure in cold weather. Engineers from Morton Thiokol (the contractor) had warned that the O-rings were unsafe below 53°F, but NASA managers overruled them. The launch proceeded despite the warning.
+**OB Analysis**: This is the textbook case of Groupthink. Symptoms included: Illusion of Invulnerability (NASA believed it had a perfect safety record), Self-Censorship (engineers did not escalate further after being overruled), Pressure on Dissenters (Thiokol managers told engineers to "take off their engineering hats and put on their management hats"), and Illusion of Unanimity (silence was taken as agreement). The decision was made in a command group with a strong leader pushing for launch.
+**Exam Tip**: The Challenger disaster is THE most cited Groupthink example in OB exams worldwide. Memorize it.
+
+### Example 8: Cross-Functional Team — Tesla's Model 3 Production
+**Scenario**: When Tesla launched the Model 3, Elon Musk created a cross-functional "production hell" team combining engineers, designers, supply chain managers, and factory workers. They lived on the factory floor for months, sleeping in sleeping bags, to solve production bottlenecks. The team worked with extreme interdependence — design changes had immediate manufacturing implications, and supply chain issues required real-time engineering fixes.
+**OB Analysis**: This cross-functional team demonstrates both the power and pain of diverse expertise. The intense collaboration eventually solved the production crisis, but at the cost of extreme burnout. Key success factor: a shared, compelling goal (save the company from bankruptcy) overrode functional silos.
+**Exam Tip**: Tesla's Model 3 "production hell" team is a dramatic example of cross-functional teams under extreme pressure.
+
+### Example 9: Virtual Team — GitLab's All-Remote Model
+**Scenario**: GitLab, a DevOps platform, operates as a fully remote company with 2,000+ employees across 65+ countries. They have no physical offices. Everything — communication, decision-making, documentation — happens asynchronously via text. Their public handbook (4,000+ pages) documents every process, policy, and decision. They use planned "coordination calls" but default to async text. Employee retention is high, and productivity is competitive.
+**OB Analysis**: GitLab solves virtual team challenges through: Extreme Documentation (replaces hallway conversations), Asynchronous First (respects time zones), Written Communication (over video calls), Transparency (any employee can see any decision), and Clear Norms (documented handbook). Their biggest challenge: building social bonds and trust without face-to-face interaction.
+**Exam Tip**: GitLab is the world's largest all-remote company. Use it as the benchmark example for virtual team management in exams.
+
+### Example 10: Social Loafing — Ringelmann's Rope Pull & Modern Context
+**Scenario**: In the 1910s, French engineer Max Ringelmann asked people to pull a rope alone and in groups. He found that individuals pulled harder alone (85 kg) than in groups of 3 (65 kg each) or 8 (39 kg each). This phenomenon — Ringelmann Effect — is the classic demonstration of social loafing. Modern research confirms this in workplace settings: team members contribute 20-30% less effort in groups of 5+ compared to working individually.
+**OB Analysis**: Social loafing increases with group size. Causes: Diffusion of Responsibility (no one person is accountable), Reduced Evaluation Apprehension (no individual performance measurement), and Sucker Effect (if others loaf, I'll loaf too). Solutions: clear individual accountability, smaller teams (4-5 people), peer evaluations, and meaningful tasks.
+**Exam Tip**: Ringelmann's rope pull is the original experiment proving social loafing. Cite it with the numbers (85 kg alone vs 39 kg in group of 8).
+
+### Example 11: Simon's Decision Model — Amazon's "Disagree and Commit"
+**Scenario**: Amazon's leadership principle "Disagree and Commit" operationalizes Simon's model. When a decision is needed: Intelligence phase (data gathering, debate), Design phase (multiple options proposed, pros/cons analyzed), Choice phase (if consensus fails, the decision-maker chooses — but everyone commits to the decision regardless of disagreement). Jeff Bezos described it as: "Use data to make decisions, but when you're down to two good options, just pick one and move fast."
+**OB Analysis**: Amazon avoids both analysis paralysis (waiting for perfect information) and groupthink (suppressing dissent). Teams debate vigorously (functional conflict) in the Intelligence and Design phases, but once a decision is made (Choice), everyone commits fully. This is Bounded Rationality in action — choose the satisficing option rather than seeking the optimal one.
+**Exam Tip**: Amazon's "Disagree and Commit" is a brilliant applied example of Simon's Decision-Making Model in exams.
+
+### Example 12: Group Norms — Google's "No Interruption" Meetings
+**Scenario**: Google's "No Interruption" meeting norm: In brainstorming sessions, the first 10-15 minutes are silent — everyone writes ideas on sticky notes before any discussion begins. This prevents high-status or loud voices from dominating. Only after ideas are generated does the group discuss, cluster, and evaluate. This norm was created to combat production blocking (the tendency for one person's talking to block others' ideas).
+**OB Analysis**: Group norms can be deliberately designed to improve group performance. Google's norm ensures that introverts and junior members contribute equally, that ideas are evaluated on merit not presenter status, and that creative output is maximized before critical evaluation begins.
+**Exam Tip**: Google's silent brainstorming norm is a practical example of how group norms can be intentionally designed for better group dynamics.
+
+### Example 13: Decision Making Under Uncertainty — COVID-19 Lockdown Decisions
+**Scenario**: In March 2020, governments worldwide faced non-programmed decisions under extreme uncertainty — should they impose lockdowns? They had incomplete data about the virus, unknown economic impacts, and no historical precedent. India's 21-day lockdown (announced with 4 hours notice) was a decision under uncertainty, using Bounded Rationality (limited data, time pressure) and Satisficing (choose the best option with available information).
+**OB Analysis**: This exemplifies all decision types: Non-Programmed (no precedent), Uncertain (unknown outcomes), Strategic (national level), with Group Decision Making (cabinet + health experts). The decision process followed Simon's model: Intelligence (case data from China/Italy), Design (lockdown vs no lockdown vs partial), Choice (full lockdown), Implementation (4-hour notice). India's choice was satisficing — not optimal, but the best possible with available information.
+**Exam Tip**: COVID-19 lockdown decisions are the most contemporary example of Non-Programmed Decision Making under Uncertainty. Use it in any exam question on decision types.
+
+### Example 14: Tuckman's Model in Startups — From Forming to Performing
+**Scenario**: A typical Indian startup journey: In Forming (0-10 employees), everyone is polite and excited. Storming (10-50 employees) hits hard — founders disagree on direction, early hires feel entitled, new hires resist "corporate" processes, and conflicts erupt daily. Many startups die in this stage. Successful ones reach Norming (50-200 employees) by establishing clear roles, values, and processes. At Performing (200+ employees), the team executes efficiently, resolves conflicts quickly, and culture is self-sustaining.
+**OB Analysis**: Startup failures are often blamed on product or funding, but the real cause is inability to progress past Storming. Founders need to adapt their leadership at each stage: Directive in Forming, Coaching in Storming, Facilitating in Norming, Delegating in Performing.
+**Exam Tip**: Connect Tuckman's Model to the Indian startup lifecycle for a contemporary, relatable exam answer.
+
+### Example 15: Team Communication Failure — Air France Flight 447
+**Scenario**: In 2009, Air France Flight 447 crashed into the Atlantic, killing all 228 people. The cause was not mechanical failure but team communication failure. When the autopilot disengaged due to ice in the speed sensors, the junior co-pilot made an incorrect control input (pulling up instead of pushing down, causing the plane to stall). The senior co-pilot in the back did not realize what was happening. Neither clearly communicated. The captain was on a rest break and was not called until too late. Hierarchy prevented the junior co-pilot from clearly stating the crisis.
+**OB Analysis**: This demonstrates the deadly cost of poor team communication. Hierarchy (Captain outranked both co-pilots) created reluctance to speak up. Lack of shared mental model (each pilot had a different understanding of the situation). Poor feedback and unclear role definition. The solution: Crew Resource Management (CRM) training that explicitly flattens hierarchy, encourages speaking up, and standardizes communication protocols.
+**Exam Tip**: Air France 447 is the most dramatic example of team communication failure in any OB exam. It powerfully illustrates why psychological safety and open communication matter.
+
+---
+
 ## Summary
 
 - **Groups** go through Forming → Storming → Norming → Performing → Adjourning stages

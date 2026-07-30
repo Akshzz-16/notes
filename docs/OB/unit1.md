@@ -259,6 +259,50 @@ Perception is the cognitive process through which individuals select, organize, 
 
 ---
 
+## Real-Life Exam Examples
+
+### Example 1: Autocratic Model — Foxconn (2010)
+**Scenario**: Foxconn, Apple's iPhone manufacturer, operated under an autocratic model — strict discipline, long hours, no input from workers. In 2010, a series of worker suicides (14 in one year) exposed the human cost. Workers lived in dormitories, faced 12-hour shifts, and were punished for slow work.
+**OB Analysis**: The autocratic model (power + fear) produced compliance but catastrophic psychological results — frustration, hopelessness, and tragedy. Foxconn had to shift toward supportive/custodial models (raised wages, improved conditions, hired counselors).
+**Exam Tip**: Quote this example when asked "Explain the limitations of the Autocratic Model of OB."
+
+### Example 2: Custodial Model — Tata Group (India)
+**Scenario**: Tata Group provides lifetime employment, pension, medical benefits, housing, and education support for employees' children. This custodial approach creates dependency on the organization. Tata has very low turnover but historically struggled with innovation speed compared to startups.
+**OB Analysis**: The custodial model (economic rewards) creates passive cooperation and satisfaction, but not strong motivation. Employees stay for benefits, not passion.
+**Exam Tip**: Use Tata as a classic example of the Custodial Model in Indian business context.
+
+### Example 3: Supportive Model — Google's Early Culture (2000s)
+**Scenario**: Google's early culture exemplified the supportive model — managers acted as coaches, employees had 20% time for personal projects, open communication was encouraged, and leadership focused on removing obstacles. This produced high innovation and engagement.
+**OB Analysis**: The supportive model (leadership + support) led to moderate to high engagement, initiative, and a sense of belonging. It bridged the gap between mere satisfaction and genuine motivation.
+**Exam Tip**: Use Google/20% time to illustrate the Supportive Model.
+
+### Example 4: Collegial Model — Zappos (Holacracy)
+**Scenario**: Zappos (Amazon subsidiary) adopted Holacracy — a self-management system with no managers, no job titles, and distributed decision-making. Teams form and dissolve around projects. Employees have full ownership of their work.
+**OB Analysis**: The collegial model (partnership + teamwork) creates high involvement, self-discipline, and self-actualization. However, Zappos experienced challenges — some employees left, and role ambiguity was high.
+**Exam Tip**: Zappos is the go-to example for the Collegial Model.
+
+### Example 5: Big Five Personality — Sales Team Hiring
+**Scenario**: A software company hiring for B2B sales found that candidates scoring high on **Extraversion** and **Conscientiousness** outperformed others by 40%. High **Neuroticism** candidates quit within 3 months. HR now uses the Big Five assessment as part of the hiring process.
+**OB Insight**: Conscientiousness is the #1 predictor of job performance across all roles. Extraversion predicts success in sales/management. Neuroticism predicts burnout.
+**Exam Tip**: When asked "Which Big Five trait best predicts job performance?" answer **Conscientiousness** and give this example.
+
+### Example 6: Stereotyping — Gender Bias in Performance Reviews
+**Scenario**: A Yale study found that when identical resumes were submitted with male vs female names, "John" was rated as significantly more competent than "Jennifer" and offered a higher starting salary. This is stereotyping based on gender.
+**OB Analysis**: Stereotyping leads to biased judgments in hiring, promotion, and performance evaluation, violating principles of equity and diversity.
+**Exam Tip**: Use this Yale study to illustrate stereotyping in exam answers about perceptual biases.
+
+### Example 7: Halo Effect — Steve Jobs' Reality Distortion Field
+**Scenario**: Steve Jobs' extraordinary charisma and vision (halo) often made people overlook his abrasive management style, micromanagement, and occasional rude behaviour. Colleagues tolerated behaviour from Jobs that would have been unacceptable from anyone else.
+**OB Analysis**: The halo effect — one outstanding positive trait (visionary genius) overshadowed negative traits (poor interpersonal skills). This distorted performance evaluations and decision-making.
+**Exam Tip**: Steve Jobs is the most cited example of the Halo Effect in OB exams.
+
+### Example 8: Perception — Hindustan Unilever (HUL) Recruitment
+**Scenario**: HUL's recruitment process uses a "discovery centre" — candidates participate in group exercises, presentations, and role plays. Multiple assessors evaluate across dimensions. This reduces perceptual biases (halo, stereotyping, selective perception) compared to a single-interview approach.
+**OB Analysis**: Perception in recruitment is inherently biased. HUL's structured multi-rater approach minimizes subjective perceptual errors and improves hiring accuracy.
+**Exam Tip**: Quote HUL's discovery centre as an example of managing perceptual biases in OB.
+
+---
+
 ## Summary
 
 - **OB** is the systematic study of individual and group behaviour in organizations

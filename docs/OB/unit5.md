@@ -216,6 +216,60 @@ Globalization integrates economies, cultures, and workforces across borders. Org
 
 ---
 
+## Real-Life Exam Examples
+
+### Example 1: Agile Leadership — Spotify's Squad Model
+**Scenario**: Spotify uses an agile leadership model where engineers are organized into **squads** (8-12 people, cross-functional, self-organizing), **tribes** (groups of squads), **chapters** (same-role groups across squads), and **guilds** (interest-based communities). Squads own their product area end-to-end and decide their own technology stack. Leaders act as coaches, not commanders.
+**OB Analysis**: Agile leadership at Spotify creates high autonomy, rapid iteration, and psychological safety. Squads run their own retrospectives and continuously improve. The model depends heavily on emotional intelligence — leaders must trust teams, tolerate failure, and facilitate rather than control.
+**Exam Tip**: Spotify's squad model is the most frequently cited real-world example of Agile Leadership in OB exams.
+
+### Example 2: Employee Well-being — Johnson & Johnson's Health Programs
+**Scenario**: Johnson & Johnson's "Live for Life" wellness program includes on-site fitness centres, health coaches, mental health counselling, smoking cessation programs, and stress management workshops. The company reported a **$2.71 return for every $1 invested** through reduced healthcare costs and higher productivity.
+**OB Analysis**: Investment in employee well-being is not charity — it is a strategic business decision. J&J's program reduced absenteeism by 20% and improved engagement scores significantly.
+**Exam Tip**: Quote the J&J ROI figure ($2.71 per $1) when asked about the business case for employee well-being.
+
+### Example 3: Technology & AI — IBM's People Analytics
+**Scenario**: IBM uses AI-powered people analytics to predict employee turnover with 95% accuracy. By analyzing patterns in email volume, meeting attendance, manager feedback, and compensation data, IBM identifies employees at risk of quitting 6-12 months in advance. Managers receive alerts and intervene with retention actions.
+**OB Analysis**: AI transforms HR from reactive to predictive. However, IBM also faced pushback — employees felt surveilled. The company had to be transparent about what data is collected and how it is used.
+**Exam Tip**: Use IBM's predictive turnover analytics when answering "Explain how AI is changing organizational behaviour."
+
+### Example 4: Workplace Flexibility — Microsoft Japan's 4-Day Work Week Trial
+**Scenario**: In 2019, Microsoft Japan tested a 4-day work week (3-day weekends) for all 2,300 employees while keeping full salaries. **Result**: Productivity increased by **39.9%** compared to the same period the previous year, electricity costs dropped by 23%, and employee satisfaction soared. However, some customers complained about reduced availability.
+**OB Analysis**: The 4-day week boosts productivity through focused work, fewer meetings, and better work-life balance. The Microsoft Japan trial is the most cited evidence for the 4-day work week movement.
+**Exam Tip**: Microsoft Japan's 39.9% productivity increase is a must-mention statistic in exams on workplace flexibility.
+
+### Example 5: Globalization — Infosys Cross-Cultural Teams
+**Scenario**: Infosys, an Indian IT giant, has employees from 90+ nationalities working across 50+ countries. Its Global Education Centre in Mysore trains 15,000+ new hires annually on not just technical skills but also cross-cultural communication, Hofstede's dimensions, and managing virtual teams. Projects involve teams from India, US, Europe, and APAC working together across time zones.
+**OB Analysis**: Globalization forces organizations to manage diversity in communication styles, decision-making (consensus vs top-down), and motivation (individualist vs collectivist). Infosys invests heavily in cross-cultural training to reduce friction.
+**Exam Tip**: Infosys is the best Indian example of managing globalization's impact on OB. Use it for questions on cross-cultural challenges.
+
+### Example 6: AI Impact on Culture — Amazon's Surveillance Controversy
+**Scenario**: Amazon warehouse workers are monitored by AI systems that track productivity metrics — package scanning speed, bathroom breaks, idle time. Automated systems generate warnings and even terminate employees without human manager input. Reports describe workers avoiding bathroom breaks due to fear of penalties.
+**OB Analysis**: While AI improves efficiency, it erodes psychological safety and trust when used purely for surveillance. Amazon's approach highlights the dark side of AI in organizational culture — treating humans as machines.
+**Exam Tip**: Amazon warehouse AI monitoring is the textbook negative example for "Impact of AI on Organizational Culture." Contrast with IBM's transparent people analytics.
+
+### Example 7: Psychological Safety — Google's Project Aristotle
+**Scenario**: Google studied 180+ teams for 2 years to find what makes effective teams (Project Aristotle). The #1 predictor was **Psychological Safety** — team members felt safe to take risks, admit mistakes, and challenge ideas without fear of punishment. Teams with high psychological safety had better performance, higher retention, and more diversity of ideas.
+**OB Analysis**: Psychological safety matters more than individual talent, seniority, or team composition. Leaders create it by modelling vulnerability, inviting dissent, and treating failures as learning opportunities.
+**Exam Tip**: Google's Project Aristotle is the single most important finding in modern OB. Memorize: "Psychological safety is the #1 predictor of team effectiveness."
+
+### Example 8: Quiet Quitting & Great Resignation — Post-COVID Trends
+**Scenario**: In 2021-2022, 47 million Americans voluntarily quit their jobs (Great Resignation). Simultaneously, Gallup found that only 32% of US employees were engaged at work. Many who stayed practiced "quiet quitting" — doing exactly what their job description requires and no more. Industries like hospitality and healthcare were hit hardest.
+**OB Analysis**: Causes included burnout from pandemic overwork, lack of purpose, poor managers, and desire for flexibility. Companies responded with higher wages, flexible work, and renewed focus on culture and recognition.
+**Exam Tip**: When asked about contemporary OB trends, always mention Great Resignation (stat: 47M quit in US) and Quiet Quitting.
+
+### Example 9: DEI — Unilever's Blind Hiring
+**Scenario**: Unilever implemented blind hiring — removing names, photos, genders, and ages from resumes before recruiters see them. They also use gamified assessments and AI-recorded video interviews (analysed for content, not appearance) to reduce unconscious bias. Result: gender balance improved to 50-50, and socio-economic diversity increased significantly.
+**OB Analysis**: DEI is not just ethical — it is strategic. Diverse teams outperform homogeneous ones in innovation and decision-making. Unilever's structured approach shows how technology can reduce (though not eliminate) bias.
+**Exam Tip**: Unilever's blind hiring is the best Indian-context-relevant example for DEI questions.
+
+### Example 10: Purpose-Driven Organization — Patagonia
+**Scenario**: Patagonia, an outdoor clothing company, states its mission as "We're in business to save our home planet." It donates 1% of sales to environmental causes, encourages customers to repair rather than buy new products, and allows employees to surf during work hours when waves are good. Despite (or because of) this, Patagonia is highly profitable and has extremely low turnover.
+**OB Analysis**: When organizations have a genuine purpose beyond profit, they attract talent who share those values, creating high engagement and retention. Gen Z particularly prioritizes purpose over pay.
+**Exam Tip**: Patagonia is the classic example for "Purpose-driven organizations" and "ESG in OB."
+
+---
+
 ## Summary
 
 - **Agile leadership** emphasizes flexibility, EI, and self-organizing teams

