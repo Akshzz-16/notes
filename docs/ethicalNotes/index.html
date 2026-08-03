@@ -5,96 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ethical Hacking &mdash; Notes</title>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:#0d1117;color:#c9d1d9;font-family:'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;min-height:100vh}
-.navbar{background:#161b22;border-bottom:1px solid #30363d;padding:0 24px;display:flex;align-items:center;height:56px;position:sticky;top:0;z-index:100}
-.navbar .brand{color:#f0f6fc;font-weight:700;font-size:18px;letter-spacing:.3px}
-.navbar .brand span{color:#f85149}
-.nav-links{list-style:none;display:flex;gap:4px;position:absolute;left:50%;transform:translateX(-50%)}
-.nav-links a{color:#8b949e;text-decoration:none;padding:16px 16px;font-size:14px;font-weight:500;position:relative;transition:color .2s}
-.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:3px;background:#f85149;border-radius:2px;transition:width .3s ease}
-.nav-links a.active{color:#f0f6fc}
-.nav-links a.active::after{width:100%}
-.nav-links a:hover{color:#f0f6fc}
-.main{flex:1;display:flex;justify-content:center;padding:40px 24px}
-.content{max-width:960px;width:100%}
-.content h1,.content h2,.content h3{color:#f0f6fc;margin-top:28px;margin-bottom:12px;border-bottom:1px solid #21262d;padding-bottom:8px}
-.content h1{font-size:28px}
-.content h2{font-size:22px}
-.content h3{font-size:18px}
-.content p{line-height:1.7;margin-bottom:14px;font-size:15px}
-.content a{color:#58a6ff;text-decoration:none}
-.content a:hover{text-decoration:underline}
-.content ul,.content ol{padding-left:24px;margin-bottom:14px}
-.content li{margin-bottom:6px;line-height:1.6;font-size:15px}
-.content strong{color:#f0f6fc}
-.content code{background:#1e242c;padding:2px 6px;border-radius:4px;font-size:13px;color:#f0f6fc}
-.content pre{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:16px;overflow-x:auto;margin-bottom:16px;font-size:13px;line-height:1.5}
-.content pre code{background:0 0;padding:0;border-radius:0}
-.content blockquote{border-left:4px solid #f85149;padding-left:16px;color:#8b949e;margin-bottom:14px}
-.content table{border-collapse:collapse;width:100%;margin-bottom:16px}
-.content th,.content td{border:1px solid #30363d;padding:8px 12px;text-align:left;font-size:14px}
-.content th{background:#1e242c;color:#f0f6fc;font-weight:600}
-.content tr:nth-child(even){background:#161b22}
-.content hr{border:none;border-top:1px solid #21262d;margin:24px 0}
-.content img{max-width:100%;border-radius:6px}
-.content p code{font-size:13px}
-.content .loading{text-align:center;padding:60px 0;color:#8b949e;font-size:16px}
-.welcome{text-align:center;padding:60px 20px}
-.welcome h1{font-size:32px;margin-bottom:12px;border:none}
-.welcome p{color:#8b949e;font-size:16px;max-width:600px;margin:0 auto;line-height:1.7}
-.units-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px}
-.unit-card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:20px;text-align:center;transition:border .2s,transform .2s;cursor:pointer}
-.unit-card:hover{border-color:#f85149;transform:translateY(-2px)}
-.unit-card .num{font-size:28px;font-weight:700;color:#f85149;margin-bottom:6px}
-.unit-card .title{font-size:14px;color:#8b949e}
-.toc-sidebar{position:fixed;left:24px;top:80px;width:220px;max-height:calc(100vh - 120px);background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;overflow-y:auto;display:none;z-index:50;font-size:13px}
-.toc-sidebar.visible{display:block}
-.toc-sidebar .toc-title{color:#f0f6fc;font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;font-size:12px}
-.toc-sidebar a{display:block;color:#8b949e;text-decoration:none;padding:3px 0;transition:color .2s;line-height:1.5;border-left:2px solid transparent;padding-left:8px}
-.toc-sidebar a:hover{color:#f0f6fc;border-left-color:#f85149}
-.toc-sidebar .toc-h2{padding-left:20px}
-.toc-sidebar .toc-h3{padding-left:32px}
-.scroll-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:#161b22;border:1px solid #30363d;cursor:pointer;z-index:100;opacity:0;transform:scale(.8);transition:opacity .3s,transform .3s;display:flex;align-items:center;justify-content:center}
-.scroll-top.visible{opacity:1;transform:scale(1)}
-.scroll-top svg{position:absolute;transform:rotate(-90deg)}
-.scroll-top .bg{fill:none;stroke:#30363d;stroke-width:3}
-.scroll-top .progress{fill:none;stroke:#f85149;stroke-width:3;stroke-linecap:round;transition:stroke-dashoffset .1s ease}
-.scroll-top .arrow{color:#c9d1d9;font-size:16px;z-index:1;pointer-events:none;line-height:1}
-@media(max-width:768px){.navbar{padding:0 12px}.nav-links{position:static;transform:none;margin-left:auto;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.nav-links::-webkit-scrollbar{display:none}.nav-links a{padding:16px 10px;font-size:13px}.main{padding:20px 12px}.content h1{font-size:24px}.content h2{font-size:20px}.content h3{font-size:17px}.content p{font-size:14px}.content th,.content td{padding:6px 8px;font-size:13px}.welcome h1{font-size:24px}.welcome p{font-size:14px;padding:0 12px}.units-grid{grid-template-columns:1fr 1fr}.toc-sidebar{left:auto;right:12px;top:auto;bottom:80px;width:180px;max-height:200px;font-size:12px}}
-@media(max-width:480px){.units-grid{grid-template-columns:1fr}.toc-sidebar{width:160px;right:8px;bottom:76px}.nav-links a{padding:16px 6px;font-size:11px}.content{padding:0 4px}}
-.content table.collapsed tbody{display:none}
-.table-toggle{display:inline-flex;align-items:center;gap:6px;cursor:pointer;color:#8b949e;font-size:13px;user-select:none;margin-bottom:8px;padding:4px 8px;border-radius:4px;transition:color .2s,background .2s}
-.table-toggle:hover{color:#f0f6fc;background:#1e242c}
-.table-toggle .icon{transition:transform .2s;display:inline-block}
-.table-toggle .icon.collapsed{transform:rotate(-90deg)}
-</style>
+<link rel="stylesheet" href="../assets/notes.css">
 </head>
 <body>
 <nav class="navbar">
-  <div class="brand">Ethical Notes</div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#" data-unit="unit1">/unit1</a></li>
-    <li><a href="#" data-unit="unit2">/unit2</a></li>
-    <li><a href="#" data-unit="unit3">/unit3</a></li>
-    <li><a href="#" data-unit="unit4">/unit4</a></li>
-    <li><a href="#" data-unit="unit5">/unit5</a></li>
-  </ul>
+  <div class="brand">Ethical <span>Notes</span></div>
+  <ul class="nav-links" id="navLinks"></ul>
 </nav>
 <main class="main">
   <div class="content" id="content">
     <div class="welcome" id="welcome">
-      <h1>Ethical Hacking Notes</h1>
-      <p>SPPU exam-oriented notes covering all units.<br>Click a unit above to begin.</p>
-      <div class="units-grid">
-        <div class="unit-card" onclick="loadUnit('unit1')"><div class="num">01</div><div class="title">Introduction to Ethical Hacking</div></div>
-        <div class="unit-card" onclick="loadUnit('unit2')"><div class="num">02</div><div class="title">Footprinting and Scanning</div></div>
-        <div class="unit-card" onclick="loadUnit('unit3')"><div class="num">03</div><div class="title">Exploitation and Cryptographic Attacks</div></div>
-        <div class="unit-card" onclick="loadUnit('unit4')"><div class="num">04</div><div class="title">Web Security and Password Cracking</div></div>
-        <div class="unit-card" onclick="loadUnit('unit5')"><div class="num">05</div><div class="title">Current and Emerging Trends</div></div>
-      </div>
+      <h1 id="welcomeTitle">Ethical Hacking Notes</h1>
+      <p id="welcomeSubtitle">SPPU exam-oriented notes covering all units.<br>Click a unit above to begin.</p>
+      <div class="units-grid" id="unitsGrid"></div>
     </div>
   </div>
 </main>
@@ -110,91 +33,23 @@ body{background:#0d1117;color:#c9d1d9;font-family:'Segoe UI',system-ui,sans-seri
 </button>
 
 <script>
-const files = {
-  unit1: 'ethical-hacking-notes.md',
-  unit2: 'ethical-hacking-unit-2.md',
-  unit3: 'ethical-hacking-unit-3.md',
-  unit4: 'ethical-hacking-unit-4.md',
-  unit5: 'ethical-hacking-unit-5.md'
+window.NOTES = {
+  files: {
+    unit1: 'ethical-hacking-notes.md',
+    unit2: 'ethical-hacking-unit-2.md',
+    unit3: 'ethical-hacking-unit-3.md',
+    unit4: 'ethical-hacking-unit-4.md',
+    unit5: 'ethical-hacking-unit-5.md'
+  },
+  units: [
+    { key: 'unit1', num: '01', title: 'Introduction to Ethical Hacking' },
+    { key: 'unit2', num: '02', title: 'Footprinting and Scanning' },
+    { key: 'unit3', num: '03', title: 'Exploitation and Cryptographic Attacks' },
+    { key: 'unit4', num: '04', title: 'Web Security and Password Cracking' },
+    { key: 'unit5', num: '05', title: 'Current and Emerging Trends' }
+  ]
 };
-
-function loadUnit(unit) {
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  document.querySelector('.nav-links a[data-unit="' + unit + '"]').classList.add('active');
-
-  const el = document.getElementById('content');
-  el.innerHTML = '<div class="loading">Loading...</div>';
-  document.getElementById('toc').classList.remove('visible');
-
-  fetch(files[unit])
-    .then(r => { if (!r.ok) throw new Error('Failed to load'); return r.text(); })
-    .then(md => {
-      el.innerHTML = marked.parse(md);
-      makeTablesCollapsible();
-      buildTOC();
-    })
-    .catch(function() {
-      el.innerHTML = '<div class="welcome"><h1>Error loading unit</h1><p>Could not load the markdown file. Make sure you are opening this page from the ethicalNotes directory.</p></div>';
-    });
-}
-
-function makeTablesCollapsible() {
-  document.querySelectorAll('#content table').forEach(function(table) {
-    if (table.dataset.collapsible) return;
-    table.dataset.collapsible = 'true';
-    var toggle = document.createElement('div');
-    toggle.className = 'table-toggle';
-    toggle.innerHTML = '<span class="icon">&#9660;</span> <span class="label">Table</span>';
-    table.parentNode.insertBefore(toggle, table);
-    toggle.addEventListener('click', function() {
-      table.classList.toggle('collapsed');
-      toggle.querySelector('.icon').classList.toggle('collapsed');
-    });
-  });
-}
-
-function buildTOC() {
-  const content = document.getElementById('content');
-  const headings = content.querySelectorAll('h1, h2, h3');
-  if (headings.length === 0) return;
-
-  headings.forEach((h, i) => {
-    if (!h.id) h.id = 'section-' + i;
-  });
-
-  const toc = document.getElementById('toc');
-  let html = '<div class="toc-title">Contents</div>';
-  headings.forEach(h => {
-    const level = h.tagName.toLowerCase();
-    const num = level.slice(1);
-    html += '<a href="#' + h.id + '" class="toc-h' + num + '">' + h.textContent + '</a>';
-  });
-  toc.innerHTML = html;
-  toc.classList.add('visible');
-}
-
-document.querySelectorAll('.nav-links a').forEach(function(a) {
-  a.addEventListener('click', function(e) {
-    e.preventDefault();
-    loadUnit(a.dataset.unit);
-  });
-});
-
-const scrollBtn = document.getElementById('scrollTop');
-const progressRing = scrollBtn.querySelector('.progress');
-const circumference = 100;
-
-window.addEventListener('scroll', function() {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = docHeight > 0 ? (scrollTop / docHeight) * circumference : 0;
-  progressRing.style.strokeDashoffset = circumference - progress;
-  scrollBtn.classList.toggle('visible', scrollTop > 200);
-});
-
-scrollBtn.addEventListener('click', function() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
 </script>
+<script src="../assets/notes.js"></script>
 </body>
 </html>
