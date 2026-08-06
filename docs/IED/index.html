@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IED &mdash; Notes</title>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="stylesheet" href="../assets/notes.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="brand">IED <span>Notes</span></div>
+  <ul class="nav-links" id="navLinks"></ul>
+</nav>
+<main class="main">
+  <div class="content" id="content">
+    <div class="welcome" id="welcome">
+      <h1 id="welcomeTitle">Innovation, Entrepreneurship &amp; Design Notes</h1>
+      <p id="welcomeSubtitle">SPPU exam-oriented notes covering all units.<br>Click a unit above to begin.</p>
+      <div class="units-grid" id="unitsGrid"></div>
+    </div>
+  </div>
+</main>
+
+<div class="toc-sidebar" id="toc"></div>
+
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <svg width="44" height="44" viewBox="0 0 36 36">
+    <path class="bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+    <path class="progress" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" stroke-dasharray="100, 100" stroke-dashoffset="100"/>
+  </svg>
+  <span class="arrow">&#8593;</span>
+</button>
+
+<script>
+window.NOTES = {
+  files: {
+    unit1: 'unit1.md',
+    unit2: 'unit2.md',
+    unit3: 'unit3.md',
+    unit4: 'unit4.md',
+    unit5: 'unit5.md'
+  },
+  units: [
+    { key: 'unit1', num: '01', title: 'Introduction to Innovation, Entrepreneurship, Idea Generation and Opportunity Recognition' },
+    { key: 'unit2', num: '02', title: 'Unit 2 (pending)' },
+    { key: 'unit3', num: '03', title: 'Unit 3 (pending)' },
+    { key: 'unit4', num: '04', title: 'Unit 4 (pending)' },
+    { key: 'unit5', num: '05', title: 'Unit 5 (pending)' }
+  ]
+};
+</script>
+<script src="../assets/notes.js"></script>
+</body>
+</html>
